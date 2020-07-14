@@ -2,18 +2,19 @@
 {% load static %}
 {% block content %}
 	<div class="row">
-		{% for product in products %}
-      <div class="col-lg-4">
+	{% for product in products %}
+		<div class="col-lg-4">
 	  <img class="thumbnail" src="{{product.image.url}}">
 		<div class="box-element product">
 			<h6><strong>{{product.name}}</strong></h6>
 			<hr>
+			<div class="btn-group-vertical">
+				<a class="btn btn-outline-success" href="#">View</a>
+				<button  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
+				<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Update Cart</button>
+			</div>
+			<h4 style="float: right"><strong>${{product.price}}</strong></h4>
 
-			<button  class="btn btn-outline-secondary add-btn update-cart">Add to Cart</button>
-			<a class="btn btn-outline-success" href="#">View</a>
-			<h4 style="display: inline-block; float: right"><strong>${{product.price}}</strong></h4>
-
-			<button data-product="{{product.id}}" data-action="add" class="btn btn-outline-secondary add-btn update-cart">Update Cart</button>
 
 	     </div>
      </div>
